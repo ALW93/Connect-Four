@@ -3,29 +3,22 @@ export class GameJsonSerializer {
     this.game = game;
   }
 
-  serialize() {
-    //build data
-    let boardArr = [];
-    for (let i = 0; i < 6; i++) {
-      for (let j = 0; j < 7; j++) {
-        let token = this.game.getTokenAt(i, j);
-        boardArr.push([i, j, token]);
-      }
-    }
-
+  serialize(num) {
     const player1 = this.game.playerOneName;
     const player2 = this.game.playerTwoName;
+    const state = localStorage.getItem("save-data");
+    let data;
+    if (state) {
+      data = JSON.parse(state);
+    } else {
+      data = {
+        "player-one": player1,
+        "player-two": player2,
+        "my-board": [],
+      };
+    }
 
-    const currentTurn = this.game.currentPlayer;
-
-    let data = {
-      "player-one": player1,
-      "player-two": player2,
-      "current-turn": currentTurn,
-      "my-board": boardArr,
-    };
-
-    // console.log(JSON.stringify(data));
-    return JSON.stringify(data);
+    data["my-board"].push(num);
+    localStorage.setItem("save-data", JSON.stringify(data));
   }
 }

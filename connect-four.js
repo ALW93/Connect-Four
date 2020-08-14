@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   newGame.addEventListener("click", (e) => {
     game = new Game(playerOne.value, playerTwo.value);
+    localStorage.clear();
     playerOne.value = "";
     playerTwo.value = "";
     newGame.setAttribute("disabled", "true");
@@ -38,14 +39,15 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   clickTarget.addEventListener("click", (e) => {
+    let num;
     if (e.target.id.includes("column-")) {
       const id = e.target.id;
-      const num = Number.parseInt(id[id.length - 1]);
+      num = Number.parseInt(id[id.length - 1]);
       game.playInColumn(num);
     }
     updateUI();
     const saveGame = new GameJsonSerializer(game);
-    localStorage.setItem("save-data", saveGame.serialize());
+    saveGame.serialize(num);
   });
 
   const saveData = localStorage.getItem("save-data");
