@@ -1,4 +1,5 @@
 import { Game } from "./game.js";
+import { GameJsonSerializer } from "./game-json-serializer.js";
 
 let game = undefined;
 const clickTarget = document.getElementById("click-targets");
@@ -39,9 +40,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target.id.includes("column-")) {
       const id = e.target.id;
       const num = Number.parseInt(id[id.length - 1]);
-      console.log(e.target.id);
       game.playInColumn(num);
     }
     updateUI();
+    const saveGame = new GameJsonSerializer(game);
+    localStorage.setItem("save-data", saveGame.serialize());
   });
+  // deserializer goes here
 });

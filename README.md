@@ -1,4 +1,7 @@
-# OOP Connect Four
+# **Connect Four**
 
-This project is part of the object-oriented programming curriculum at App
-Academy. Please fork and clone it to work on the Connect Four project.
+Xander and Alycia's wonderful connect game 10/10 on IGN - available on Steam this Christmas!
+
+"The hottest game to hit the market this year!" - Metacritic
+
+"League of Legends, who?" - Riot Games
