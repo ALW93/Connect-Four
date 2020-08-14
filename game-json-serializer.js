@@ -25,6 +25,7 @@ export class GameJsonSerializer {
       "my-board": boardArr,
     };
 
+    // console.log(JSON.stringify(data));
     return JSON.stringify(data);
   }
 }

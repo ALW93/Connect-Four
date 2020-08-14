@@ -1,5 +1,6 @@
 import { Game } from "./game.js";
 import { GameJsonSerializer } from "./game-json-serializer.js";
+import { GameJsonDeserializer } from "./game-json-deserializer.js";
 
 let game = undefined;
 const clickTarget = document.getElementById("click-targets");
@@ -46,5 +47,11 @@ window.addEventListener("DOMContentLoaded", () => {
     const saveGame = new GameJsonSerializer(game);
     localStorage.setItem("save-data", saveGame.serialize());
   });
-  // deserializer goes here
+
+  const saveData = localStorage.getItem("save-data");
+  if (saveData !== null) {
+    const JSONgame = new GameJsonDeserializer(saveData);
+    game = JSONgame.deserialize();
+    updateUI();
+  }
 });

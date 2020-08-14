@@ -136,4 +136,12 @@ export class Game {
       }
     }
   }
+
+  setCurrentPlayer(number) {
+    if (number === 1) {
+      this.currentPlayer = 2;
+    } else {
+      this.currentPlayer = 1;
+    }
+  }
 }
