@@ -1,12 +1,18 @@
 body,
 html {
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  height: 100%;
   padding: 0;
   margin: 0;
 }
 
 button {
-  border: 0;
-  background-color: orangered;
+  border: 2px;
+  border-color: black;
+  background-color: plum;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   font-size: 1em;
   padding: 0.5em 1em;
@@ -20,7 +26,7 @@ button[disabled] {
 }
 
 button:active {
-  background-color: darkred;
+  background-color: palegreen;
 }
 
 input {
@@ -34,7 +40,7 @@ input {
 }
 
 input:focus {
-  border-bottom: 2px solid orangered;
+  border-bottom: 2px solid plum;
 }
 
 main {
@@ -99,19 +105,19 @@ main {
 }
 
 .token.red {
-  background-color: red;
+  background-color: palevioletred;
 }
 
 .token.black {
-  background-color: black;
+  background-color: palegreen;
 }
 
 .red .click-target:hover {
-  background-color: red;
+  background-color: palevioletred;
 }
 
 .black .click-target:hover {
-  background-color: black;
+  background-color: palegreen;
 }
 
 .full.click-target {
